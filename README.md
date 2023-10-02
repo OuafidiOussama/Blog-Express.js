@@ -4,6 +4,6 @@
 https://minisass.atlassian.net/jira/software/projects/BNJ/boards/5
 
 ### Class Diagram : 
-![alt text](https://cdn.discordapp.com/attachments/1149715950787100796/1156158111904706581/diagramClass.png?ex=6513f3a6&is=6512a226&hm=30afcc41fb85322cad96ef05b67d69c3b649169b915283b402359f73331a18d6&)
+![alt text](https://media.discordapp.net/attachments/1030507634719199262/1156258107647864903/blog-express.js.png?ex=651b9107&is=651a3f87&hm=3da095b7f570a4baeea2ce432804c78a1c56aea30430c1f33f0fb91361c41210&=&width=947&height=528)
 ### Use case Diagram : 
-![alt text](https://media.discordapp.net/attachments/1149715950787100796/1156158112139591700/blog_system_.jpeg?ex=6513f3a6&is=6512a226&hm=26d8008a235273a0b932fb5ff029fbf4eceb2f4f983a2cbfc12e982f5c356ae7&=&width=980&height=450)
+![alt text](https://media.discordapp.net/attachments/1030507634719199262/1156263065973702716/UseCaseBlog.png?ex=651b95a5&is=651a4425&hm=f9b65bb73b3c6c36236ca3b5cb3dc307fcf900f9864a404e3dc1e91d4b04e86f&=&width=768&height=596)
