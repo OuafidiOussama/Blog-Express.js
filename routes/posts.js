@@ -1,12 +1,16 @@
 const express = require('express')
+const postsController = require('../controllers/postsController')
 const router = express.Router()
 
-router.get("/", (req, res) =>{
-    res.send("Posts");
-})
+router
+    .route('/')
+    .get(postsController.getAllPosts)
+    .post(postsController.addPost)
 
-router.get("/new", (req, res) =>{
-    res.send("Add New Posts");
-})
+router
+    .route('/:id')
+    .get(postsController.getPostById)
+    .put(postsController.updatePost)
+    .delete(postsController.deletePost)
 
-module.exports = router
+module.exports = router;
