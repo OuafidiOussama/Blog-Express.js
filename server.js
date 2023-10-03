@@ -11,8 +11,10 @@ app.get('/', (req, res)=>{
 })
 
 const postsRouter = require('./routes/posts')
-
 app.use('/posts/', postsRouter)
+
+const categoryRouter = require('./routes/categories')
+app.use('/cats/', categoryRouter)
 
 app.listen(3000);
 

@@ -37,15 +37,11 @@ getPostById = async (req, res) =>{
 }
 
 updatePost = async (req, res) =>{
-    let data = [
-        id => req.params.id,
-        title =>req.body.title, 
-        content =>req.body.content, 
-        picture => req.body.picture
-    ]
+    let id = req.params.id
+    let {title, content, picture} = req.body
     try {
-        await Post.updatePost(data)
-        res.send({message: `Post ${data.id} is Updated`})
+        await Post.updatePost(title, content, picture, id)
+        res.send({message: `Post ${id} is Updated`})
     } catch (err) {
         console.error(err)
     }

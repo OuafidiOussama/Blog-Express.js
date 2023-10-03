@@ -13,9 +13,9 @@ class Post {
         let month = date.getMonth() + 1 ;
         let day = date.getDate();
 
-        let publishingDate = `${year}-${month}-${day}`
+        let created_at = `${year}-${month}-${day}`
 
-        let sql = `INSERT INTO posts(title, content, picture, publishingDate) values('${this.title}', '${this.content}', '${this.picture}', '${publishingDate}')`;
+        let sql = `INSERT INTO posts(title, content, picture, created_at) values('${this.title}', '${this.content}', '${this.picture}', '${created_at}')`;
         const res =  db.execute(sql);
 
         return res;
@@ -35,8 +35,15 @@ class Post {
         return res;
     }
 
-    static updatePost(data){
-        let sql = `UPDATE posts title = '${data.title}', content = '${data.content}', picture = '${data.picture}' WHERE postId = ${data.id}`;
+    static updatePost(title, content, picture, id){
+        let date = new Date();
+        let year = date.getFullYear();
+        let month = date.getMonth() + 1 ;
+        let day = date.getDate();
+
+        let updated_at = `${year}-${month}-${day}`
+
+        let sql = `UPDATE posts SET title = '${title}', content = '${content}', picture = '${picture}', updated_at = '${updated_at}' WHERE postId = ${id}`;
         const res = db.execute(sql);
 
         return res;
