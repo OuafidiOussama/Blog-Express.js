@@ -14,8 +14,8 @@ getAllCategories = async (req, res) =>{
 
 addCategory = async (req, res) =>{
     try{
-        let {name} = req.body
-        let cat= new Category(name);
+        let {name, picture} = req.body
+        let cat= new Category(name, picture);
 
         cat = await cat.save()
         
@@ -38,9 +38,9 @@ getCategoryById = async (req, res) =>{
 
 updateCategory = async (req, res) =>{
     let id = req.params.id
-    let {name} = req.body
+    let {name, picture} = req.body
     try {
-        await Category.updateCategory(name, id)
+        await Category.updateCategory(name, picture, id)
         res.send({message: `Category ${id} is Updated`})
     } catch (err) {
         console.error(err)

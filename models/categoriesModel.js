@@ -1,12 +1,13 @@
 const db = require('../config/db')
 
 class Category {
-    constructor(name){
+    constructor(name, picture){
         this.name = name;
+        this.picture = picture;
     }
 
     async save(){
-        let sql = `INSERT INTO categories (name) values('${this.name}')`;
+        let sql = `INSERT INTO categories (name, picture) values('${this.name}', '${this.picture})`;
         const res =  db.execute(sql);
 
         return res;
@@ -26,8 +27,8 @@ class Category {
         return res;
     }
 
-    static updateCategory(name, id){
-        let sql = `UPDATE categories SET name = '${name}' WHERE categoryId = ${id}`;
+    static updateCategory(name,picture , id){
+        let sql = `UPDATE categories SET name = '${name}', picture = '${picture}' WHERE categoryId = ${id}`;
         const res = db.execute(sql);
 
         return res;
