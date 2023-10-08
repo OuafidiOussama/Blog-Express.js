@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Kanit:wght@400;700&display=swap" rel="stylesheet">
-    <title>Blog</title>
+    <title>Blog | <%= title %></title>
 </head>
 <body>
     <!-- header -->
@@ -21,93 +21,35 @@
             <li><a href="/posts">POSTS</a></li>
             <li><a href="/categories">CATEGORIES</a></li>
         </ul>
-        <input type="text" name="search" placeholder="Search">
+        <form action="/posts" method="get" enctype="multipart/form-data">
+            <input type="text" name="search" placeholder="Search">
+        </form>
     </header>
 
     <!-- viral Posts -->
     <section class="posts">
         <h1>Posts</h1>
+        <select name="cat" id="" onchange="location = '/categories/'+ this.value">
+            <% cats.forEach(cat => { %>
+                <option value="<%=cat.categoryId%>"><%=cat.name%></option>
+            <% }); %>
+        </select>
         <div class="cards-container">
-            <div class="card">
-                <img src="images/images-blogue.png" alt="">
-                <h3>Post Title</h3>
-                <p class="content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod quidem maiores consequuntur repellendus ea nesciunt fuga soluta voluptate nobis minus tempora, incidunt autem molestias architecto facere fugiat a in perspiciatis.</p>
-            </div>
-            <div class="card">
-                <img src="images/images-blogue.png" alt="">
-                <h3>Post Title</h3>
-                <p class="content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod quidem maiores consequuntur repellendus ea nesciunt fuga soluta voluptate nobis minus tempora, incidunt autem molestias architecto facere fugiat a in perspiciatis.</p>
-            </div>
-            <div class="card">
-                <img src="images/Untitled-design-4.jpg" alt="">
-                <h3>Post Title</h3>
-                <p class="content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod quidem maiores consequuntur repellendus ea nesciunt fuga soluta voluptate nobis minus tempora, incidunt autem molestias architecto facere fugiat a in perspiciatis.</p>
-            </div>
-            <div class="card">
-                <img src="images/images-blogue.png" alt="">
-                <h3>Post Title</h3>
-                <p class="content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod quidem maiores consequuntur repellendus ea nesciunt fuga soluta voluptate nobis minus tempora, incidunt autem molestias architecto facere fugiat a in perspiciatis.</p>
-            </div>
-            <div class="card">
-                <img src="images/images-blogue.png" alt="">
-                <h3>Post Title</h3>
-                <p class="content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod quidem maiores consequuntur repellendus ea nesciunt fuga soluta voluptate nobis minus tempora, incidunt autem molestias architecto facere fugiat a in perspiciatis.</p>
-            </div>
-            <div class="card">
-                <img src="images/images-blogue.png" alt="">
-                <h3>Post Title</h3>
-                <p class="content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod quidem maiores consequuntur repellendus ea nesciunt fuga soluta voluptate nobis minus tempora, incidunt autem molestias architecto facere fugiat a in perspiciatis.</p>
-            </div>
-            <div class="card">
-                <img src="images/images-blogue.png" alt="">
-                <h3>Post Title</h3>
-                <p class="content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod quidem maiores consequuntur repellendus ea nesciunt fuga soluta voluptate nobis minus tempora, incidunt autem molestias architecto facere fugiat a in perspiciatis.</p>
-            </div>
-            <div class="card">
-                <img src="images/images-blogue.png" alt="">
-                <h3>Post Title</h3>
-                <p class="content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod quidem maiores consequuntur repellendus ea nesciunt fuga soluta voluptate nobis minus tempora, incidunt autem molestias architecto facere fugiat a in perspiciatis.</p>
-            </div>
-            <div class="card">
-                <img src="images/images-blogue.png" alt="">
-                <h3>Post Title</h3>
-                <p class="content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod quidem maiores consequuntur repellendus ea nesciunt fuga soluta voluptate nobis minus tempora, incidunt autem molestias architecto facere fugiat a in perspiciatis.</p>
-            </div>
-            <div class="card">
-                <img src="images/images-blogue.png" alt="">
-                <h3>Post Title</h3>
-                <p class="content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod quidem maiores consequuntur repellendus ea nesciunt fuga soluta voluptate nobis minus tempora, incidunt autem molestias architecto facere fugiat a in perspiciatis.</p>
-            </div>
-            <div class="card">
-                <img src="images/Untitled-design-4.jpg" alt="">
-                <h3>Post Title</h3>
-                <p class="content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod quidem maiores consequuntur repellendus ea nesciunt fuga soluta voluptate nobis minus tempora, incidunt autem molestias architecto facere fugiat a in perspiciatis.</p>
-            </div>
-            <div class="card">
-                <img src="images/images-blogue.png" alt="">
-                <h3>Post Title</h3>
-                <p class="content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod quidem maiores consequuntur repellendus ea nesciunt fuga soluta voluptate nobis minus tempora, incidunt autem molestias architecto facere fugiat a in perspiciatis.</p>
-            </div>
-            <div class="card">
-                <img src="images/images-blogue.png" alt="">
-                <h3>Post Title</h3>
-                <p class="content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod quidem maiores consequuntur repellendus ea nesciunt fuga soluta voluptate nobis minus tempora, incidunt autem molestias architecto facere fugiat a in perspiciatis.</p>
-            </div>
-            <div class="card">
-                <img src="images/images-blogue.png" alt="">
-                <h3>Post Title</h3>
-                <p class="content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod quidem maiores consequuntur repellendus ea nesciunt fuga soluta voluptate nobis minus tempora, incidunt autem molestias architecto facere fugiat a in perspiciatis.</p>
-            </div>
-            <div class="card">
-                <img src="images/images-blogue.png" alt="">
-                <h3>Post Title</h3>
-                <p class="content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod quidem maiores consequuntur repellendus ea nesciunt fuga soluta voluptate nobis minus tempora, incidunt autem molestias architecto facere fugiat a in perspiciatis.</p>
-            </div>
-            <div class="card">
-                <img src="images/images-blogue.png" alt="">
-                <h3>Post Title</h3>
-                <p class="content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod quidem maiores consequuntur repellendus ea nesciunt fuga soluta voluptate nobis minus tempora, incidunt autem molestias architecto facere fugiat a in perspiciatis.</p>
-            </div>
+            <% posts.forEach(post => { %>
+                <div class="wrapper">
+                    <a href="/posts/<%=post.postId%>">
+                        <div class="card">
+                            <img src="uploads/posts/<%=post.picture%>" alt="">
+                            <h3><%= post.title %></h3>
+                            <p class="content"><%= post.content %></p>
+                        </div>
+                    </a>
+                    <div class="buttons">
+                        <a href="/updatePost/<%=post.postId%>"><button class="update">Update</button></a>
+                        <form action="/posts/delete/<%=post.postId%>" method="POST"><button class="delete" type="submit">Delete</button></a>
+                    </div>
+                </div>
+            <% }); %>
         </div>
     </section>
 

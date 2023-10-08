@@ -5,8 +5,7 @@ getAllCategories = async (req, res) =>{
     try{
         const [categories, _] = await Category.findAll();
 
-        res.status(200).json({categories})
-
+        res.render('categories', {title: 'Categories', cats: categories})
     }catch(err){
         console.error(err)
     }
@@ -14,12 +13,13 @@ getAllCategories = async (req, res) =>{
 
 addCategory = async (req, res) =>{
     try{
-        let {name, picture} = req.body
+        let picture = req.file.filename
+        let {name} = req.body
         let cat= new Category(name, picture);
 
         cat = await cat.save()
         
-        res.status(201).json({ message: "Category Created" })
+        res.status(201).redirect('categories')
     }catch(err){
         console.error(err)
     }
@@ -28,9 +28,9 @@ addCategory = async (req, res) =>{
 getCategoryById = async (req, res) =>{
     let id = req.params.id;
     try {
-        let [cat, _] = await Category.findById(id)
+        let [posts, _] = await Category.filter(id)
 
-        res.status(200).json({category: cat[0]})
+        res.status(200).render('posts',{title: "Posts" ,posts: posts })
     } catch (err) {
         console.error(err)
     }
@@ -38,14 +38,15 @@ getCategoryById = async (req, res) =>{
 
 updateCategory = async (req, res) =>{
     let id = req.params.id
-    let {name, picture} = req.body
+    let {name} = req.body
+    let picture = req.file.filename
     try {
         await Category.updateCategory(name, picture, id)
-        res.send({message: `Category ${id} is Updated`})
+        res.redirect('/categories')
     } catch (err) {
         console.error(err)
     }
 }
-
+    
 
 module.exports = {getAllCategories, addCategory, getCategoryById, updateCategory}
