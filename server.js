@@ -14,17 +14,6 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.set("view engine", "ejs")
 
-// app.get('/', async (req, res)=>{
-//     try {
-//         const [posts, e] = await Post.findAll()
-//         const [cats, _] = await Category.findAll()
-//         res.render('index', {title: 'Home', posts: posts, cats: cats})
-//     } catch (error) {
-//         console.error(error)
-//     }
-    
-// })
-
 app.get('/', async (req, res)=>{
     try {
         const [posts, e] = await Post.findAll()

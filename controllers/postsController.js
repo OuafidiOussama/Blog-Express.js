@@ -20,20 +20,6 @@ getAllPosts = async (req, res) =>{
     }
 }
 
-
-
-// getPostByTitle = async (req, res)=>{
-//     try {
-//         let title = req.query
-//         title = title.search
-//         const [posts, _] = await Post.getPostByTitle(title)
-
-//         res.render('posts', {title: 'Posts', posts: posts})
-//     } catch (error) {
-//         console.log(error);
-//     }
-// }
-
 addPost = async (req, res) =>{
     try{
         let pictureUpload = req.file.filename
