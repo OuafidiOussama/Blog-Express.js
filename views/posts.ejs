@@ -15,12 +15,8 @@
         <div>
             <img src="images/blog-49006_1280.png" alt="">
         </div>
-        
+
         <ul>
-            <div class="operations">
-                <button class="add"><a href="/newpost" >Add Post</a></button>
-                <button class="add"><a href="/newcat" >Add Category</a></button>
-            </div>
             <li><a href="/">HOME</a></li>
             <li><a href="/posts">POSTS</a></li>
             <li><a href="/categories">CATEGORIES</a></li>
@@ -30,33 +26,29 @@
         </form>
     </header>
 
-    <!-- Top Categories -->
-    <section class="categories">
-        <h1>Top Categories</h1>
-        <div class="cards-container">
-            <% cats.forEach(cat => { %>
-                <a href="/categories/<%=cat.categoryId%>">
-                    <div class="card">
-                        <img src="/uploads/categories/<%=cat.picture%>" alt="">
-                        <h2><%=cat.name%></h2>
-                    </div>
-                </a>
-            <% }); %>
-        </div>
-    </section>
-
     <!-- viral Posts -->
     <section class="posts">
-        <h1>Viral Posts</h1>
+        <h1>Posts</h1>
+        <select name="cat" id="" onchange="location = '/categories/'+ this.value">
+            <% cats.forEach(cat => { %>
+                <option value="<%=cat.categoryId%>"><%=cat.name%></option>
+            <% }); %>
+        </select>
         <div class="cards-container">
             <% posts.forEach(post => { %>
-                <a href="/posts/<%=post.postId%>">
-                    <div class="card">
-                        <img src="/uploads/posts/<%=post.picture%>" alt="">
-                        <h3><%= post.title %></h3>
-                        <p class="content"><%= post.content %></p>
+                <div class="wrapper">
+                    <a href="/posts/<%=post.postId%>">
+                        <div class="card">
+                            <img src="uploads/posts/<%=post.picture%>" alt="">
+                            <h3><%= post.title %></h3>
+                            <p class="content"><%= post.content %></p>
+                        </div>
+                    </a>
+                    <div class="buttons">
+                        <a href="/updatePost/<%=post.postId%>"><button class="update">Update</button></a>
+                        <form action="/posts/delete/<%=post.postId%>" method="POST"><button class="delete" type="submit">Delete</button></a>
                     </div>
-                </a>
+                </div>
             <% }); %>
         </div>
     </section>
